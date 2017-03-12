@@ -1,57 +1,152 @@
 //	PAGE Style
 //==================================================
-body {
-	// custom scroll-bar
-	//.scroll-bar();
+html, body {
+    height: 100%;
 }
+
+body {
+    // custom scroll-bar
+    //.scroll-bar();
+    overflow-x: hidden;
+}
+
 main {
 }
+
 #page {
 }
+
 //	HEADER Style
 //==================================================
 header {
-	background : @header-bg;
-	color      : @header-color;
+    z-index: 15;
+    color: @header-color;
 
-	// -- LOGO Style
-	.logo {
-		text-decoration : none;
+    &.index {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100vw;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
 
-		a {
-			display : inline-block;
-		}
+            background-color: @nav-bg;
+        }
+    }
 
-		img {
-		}
-	}
+    // -- LOGO Style
+    .logo {
+        text-align: center;
+        a {
+            .inline-block();
+            text-decoration: none;
+
+        }
+
+        img {
+        }
+    }
+    a {
+        text-decoration: none;
+        color: @header-color;
+    }
 }
+
+.top-line {
+    .inline-block-wrap();
+    p {
+        margin-bottom: 0;
+        padding: 1em;
+        font-family: @font-family-headings;
+        font-weight: 700;
+        &::before{
+            .inline-block();
+            margin-right: 0.5em;
+        }
+    }
+}
+
 // -- NAV Style
 nav {
 }
+
 //	CONTENT Style
 //==================================================
 article {
 }
+
 section {
 }
+
 //	SIDEBAR Style
 //==================================================
 aside {
-	.aside-box {
-		margin-bottom : 30px;
-	}
+    .aside-box {
+        margin-bottom: 30px;
+    }
 }
+
 //	FOOTER Style
 //==================================================
 footer {
-	padding    : @padding-larger-vertical * 2 0;
-	background : @footer-bg;
-	color      : @footer-color;
-	font-size  : @font-size-small;
+    color: @footer-color;
+    background: @footer-bg;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+
+        background-color: @nav-bg;
+    }
+    .contact-box {
+        a {
+            .inline-block();
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+    }
 }
+
+.under-footer {
+    position: relative;
+    color: #808080;
+    background-color: #212124;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+
+        background-color: #212124;
+    }
+    p {
+        padding: 0.25em;
+        margin-bottom: 0;
+        font-size: 0.85em;
+    }
+}
+
 //	Button to scroll top
 //==================================================
 #go-top {
-	.button-color(#ffffff; fade(#000000, 50%); fade(#000000, 50%); @primary-color; @primary-bg; @primary-bg);
+    .button-color(#FFFFFF; fade(#000000, 50%); fade(#000000, 50%); @primary-color; @primary-bg; @primary-bg);
 }

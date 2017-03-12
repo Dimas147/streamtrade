@@ -1,18 +1,17 @@
 .img_gallery when (@image-gallery) {
-    margin    : 10px 0;
-    font-size : 0;
+    .inline-block-wrap();
 
     li {
-        font-size  : 1rem;
-        position   : relative;
-        margin     : 5px;
-        text-align : center;
-        .inline-block(middle);
+        position: relative;
+        margin-bottom: 0;
+        .grid-elements(5; 0; true; 3; 1);
+        background: @brand-dark;
     }
 
     a {
+        display: block;
         img {
-            .thumbnail-state();
+            width: 100%;
         }
     }
 

@@ -7,36 +7,60 @@ extend ' .mobile-menu li' has no matches
 .related-products {
   font-size: 0;
 }
-.listpages li,
-.listcategories li,
-.featureditem li,
-.relatedpages li,
-.related-products li {
-  font-size: 14px;
+.listpages >*,
+.listcategories >*,
+.featureditem >*,
+.relatedpages >*,
+.related-products >* {
+  font-size: 1rem;
   display: inline-block;
   vertical-align: top;
 }
 @media only screen and (min-width: 800px) {
+  #main-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    z-index: 11;
+    background-color: #212328;
+  }
   .main_menu {
     position: relative;
-    z-index: 11;
-    background: #3f51b5;
-    color: #ffffff;
+    z-index: 12;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    background: #212328;
+    color: #FFFFFF;
   }
   .main_menu > li {
     float: left;
     position: relative;
+    margin-right: 1px;
   }
   .main_menu > li:hover,
   .main_menu a.current {
-    background: #32408f;
+    background: #ef4135;
   }
   .main_menu > li:hover ul {
     display: block;
   }
+  .main_menu > li:hover .sub-menu-btn-desktop {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
   .main_menu a {
     display: block;
-    padding: 8px 12px;
+    padding: 2em;
     text-decoration: none;
     color: inherit;
   }
@@ -47,9 +71,13 @@ extend ' .mobile-menu li' has no matches
     z-index: 0;
     display: none;
     width: 300px;
-    background: #ffffff;
+    text-transform: none;
+    background: #FFFFFF;
     color: #888888;
     box-shadow: 0 3px 5px #555555;
+  }
+  .main_menu ul.open {
+    display: block;
   }
   .main_menu ul li {
     float: none;
@@ -58,6 +86,35 @@ extend ' .mobile-menu li' has no matches
   .main_menu ul li a.current {
     background: #eeeeee;
   }
+  .main_menu ul li a {
+    padding: 1em;
+  }
+}
+footer .main_menu {
+  text-transform: none;
+  font-family: 'Roboto', Helvetica, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+}
+footer .main_menu > li {
+  float: none;
+  display: block;
+  margin-bottom: 1em;
+  color: #808080;
+}
+footer .main_menu > li:hover {
+  background: transparent;
+  color: #ef4135;
+}
+footer .main_menu > li:hover ul {
+  display: block;
+}
+footer .main_menu a {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+}
+footer .main_menu a.current {
+  background-color: transparent;
 }
 .static_menu {
   overflow: hidden;
@@ -72,30 +129,32 @@ extend ' .mobile-menu li' has no matches
 .featureapage,
 .featureditem li,
 .relatedpages li {
-  margin-bottom: 30px;
-  margin-left: 2%;
+  position: relative;
+  margin-bottom: 0;
+  margin-left: 0%;
   margin-right: 0;
-  width: 32%;
+  width: 20%;
+  background: #212328;
 }
-.featureapage:nth-of-type(3n + 1),
-.featureditem li:nth-of-type(3n + 1),
-.relatedpages li:nth-of-type(3n + 1) {
+.featureapage:nth-of-type(5n + 1),
+.featureditem li:nth-of-type(5n + 1),
+.relatedpages li:nth-of-type(5n + 1) {
   margin-left: 0;
 }
 @media only screen and (max-width: 800px) and (min-width: 481px) {
   .featureapage,
   .featureditem li,
   .relatedpages li {
-    width: 49%;
+    width: 33.33333333%;
   }
   .featureapage:nth-of-type(n),
   .featureditem li:nth-of-type(n),
   .relatedpages li:nth-of-type(n) {
-    margin-left: 2%;
+    margin-left: 0%;
   }
-  .featureapage:nth-of-type(2n + 1),
-  .featureditem li:nth-of-type(2n + 1),
-  .relatedpages li:nth-of-type(2n + 1) {
+  .featureapage:nth-of-type(3n + 1),
+  .featureditem li:nth-of-type(3n + 1),
+  .relatedpages li:nth-of-type(3n + 1) {
     margin-left: 0;
   }
 }
@@ -111,11 +170,116 @@ extend ' .mobile-menu li' has no matches
     margin-left: 0;
   }
 }
+.featureapage a,
+.featureditem li a,
+.relatedpages li a {
+  display: block;
+}
 .featureapage .page-teaser-image,
 .featureditem li .page-teaser-image,
 .relatedpages li .page-teaser-image {
+  position: relative;
   overflow: hidden;
-  margin-bottom: 0.5em;
+}
+.featureapage .page-teaser-image::before,
+.featureditem li .page-teaser-image::before,
+.relatedpages li .page-teaser-image::before,
+.featureapage .page-teaser-image::after,
+.featureditem li .page-teaser-image::after,
+.relatedpages li .page-teaser-image::after {
+  transition: all 0.3s;
+}
+.featureapage .page-teaser-image img,
+.featureditem li .page-teaser-image img,
+.relatedpages li .page-teaser-image img {
+  width: 100%;
+}
+.featureapage .page-teaser-image::before,
+.featureditem li .page-teaser-image::before,
+.relatedpages li .page-teaser-image::before {
+  content: '';
+  background: rgba(33, 35, 40, 0.8);
+  position: absolute;
+  left: -50%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  -webkit-transform: skew(-30deg, 0deg);
+  -ms-transform: skew(-30deg, 0deg);
+  transform: skew(-30deg, 0deg);
+}
+.featureapage .page-teaser-image::after,
+.featureditem li .page-teaser-image::after,
+.relatedpages li .page-teaser-image::after {
+  content: '';
+  background: rgba(239, 65, 53, 0.8);
+  position: absolute;
+  right: -150%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  -webkit-transform: skew(-30deg, 0deg);
+  -ms-transform: skew(-30deg, 0deg);
+  transform: skew(-30deg, 0deg);
+}
+.featureapage .page-title,
+.featureditem li .page-title,
+.relatedpages li .page-title {
+  overflow: hidden;
+  color: #FFFFFF;
+  word-break: break-all;
+}
+.featureapage .teaser-block,
+.featureditem li .teaser-block,
+.relatedpages li .teaser-block {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 6% 8%;
+  z-index: 5;
+  top: 0;
+  left: 0;
+}
+.featureapage span,
+.featureditem li span,
+.relatedpages li span,
+.featureapage p,
+.featureditem li p,
+.relatedpages li p {
+  display: block;
+  color: #FFFFFF;
+  margin-bottom: 0.6em;
+}
+.featureapage button,
+.featureditem li button,
+.relatedpages li button,
+.featureapage .btn,
+.featureditem li .btn,
+.relatedpages li .btn {
+  position: absolute;
+  bottom: 8%;
+  font-size: 1.47em;
+}
+.featureapage:hover .page-teaser-image::before,
+.featureditem li:hover .page-teaser-image::before,
+.relatedpages li:hover .page-teaser-image::before {
+  left: -150%;
+}
+.featureapage:hover .page-teaser-image::after,
+.featureditem li:hover .page-teaser-image::after,
+.relatedpages li:hover .page-teaser-image::after {
+  right: 50%;
+}
+.featureditem {
+  font-size: 0;
+  margin-bottom: 2.94rem;
+}
+.featureditem >* {
+  font-size: 1rem;
+  display: inline-block;
+  vertical-align: top;
 }
 .featureapage {
   float: left;
@@ -170,7 +334,7 @@ aside .relatedpages li p {
 .news-item .news-item-date::before {
   top: 2px;
   font-size: 16px;
-  color: #3f51b5;
+  color: #ef4135;
 }
 .news-item .news-item-tags a {
   color: #888888;
@@ -254,8 +418,8 @@ aside .relatedpages li p {
 .mobile-bar.top {
   top: 0;
   line-height: 56px;
-  color: #ffffff;
-  background: #3f51b5;
+  color: #FFFFFF;
+  background: #ef4135;
 }
 .mobile-bar.top .btn.icon {
   width: 56px;
@@ -313,7 +477,7 @@ aside .relatedpages li p {
   -ms-flex: 1 0 100%;
   flex: 1 0 100%;
   text-transform: uppercase;
-  color: #98a2db;
+  color: #f8b0ab;
   font-weight: 500;
   overflow-x: auto;
   height: 48px;
@@ -331,12 +495,12 @@ aside .relatedpages li p {
   height: 0;
 }
 .tabs::-webkit-scrollbar-track {
-  background: #666666;
+  background: #666;
   border-radius: 10px;
 }
 .tabs::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #cccccc;
+  background: #ccc;
 }
 .tabs .sub-menu-btn {
   display: none;
@@ -392,8 +556,8 @@ aside .relatedpages li p {
 }
 .tabs a.current {
   background-color: transparent !important;
-  border-color: #ffffff;
-  color: #ffffff;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
 }
 .tabs.sub-of-main {
   display: none;
@@ -405,7 +569,7 @@ aside .relatedpages li p {
 .sub-menu-btn {
   width: 48px;
   text-align: center;
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 1.25em;
   position: absolute;
   right: 0;
@@ -560,7 +724,7 @@ aside .relatedpages li p {
 .m-menu li a:hover,
 .m-menu li a.current {
   background: #f2f2f2;
-  color: #3f51b5;
+  color: #ef4135;
 }
 .m-menu li:hover {
   background: transparent;
@@ -582,7 +746,7 @@ aside .relatedpages li p {
 .dropdown-menu,
 .mobile-menu.dropdown,
 [data-dropdown-open] .dropdown-menu-mobile {
-  background: #ffffff !important;
+  background: #fff !important;
   color: #555555 !important;
   position: absolute;
   z-index: 92 !important;

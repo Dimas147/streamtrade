@@ -25,7 +25,7 @@
   min-width: 100%;
 }
 .carousel .carousel-wrap .carousel-item {
-  font-size: 14px;
+  font-size: 1rem;
   display: inline-block;
   vertical-align: top;
 }
@@ -41,7 +41,7 @@
   margin: auto;
   width: 3em;
   display: none;
-  font-size: 14px;
+  font-size: 17px;
 }
 .carousel .carousel-btn::before {
   font-family: flexkit-icons;
@@ -93,9 +93,9 @@
   text-align: center;
 }
 .smoke-base .dialog.primary .dialog-inner {
-  color: #222b61;
-  border-color: #7f8bce;
-  background-color: #ccd1eb;
+  color: #80231c;
+  border-color: #f48179;
+  background-color: #fbcdc9;
 }
 .smoke-base .dialog.success .dialog-inner {
   color: #2a6a2c;
@@ -127,7 +127,7 @@
 .smoke-base .dialog-inner {
   overflow: auto;
   margin-top: 15%;
-  max-width: 720px;
+  max-width: 1080px;
   max-height: 70%;
   font-size: 1.25em;
   padding: 1em 2em;
@@ -142,29 +142,61 @@
 }
 .smoke-base .dialog-buttons button {
   font-size: 12px;
-  color: #ffffff;
+  color: #FFFFFF;
   border-color: #189b1a;
-  background-color: #4fc752;
+  background-color: #4FC752;
 }
 .smoke-base .dialog-buttons button:hover,
 .smoke-base .dialog-buttons button:active,
 .smoke-base .dialog-buttons button.active {
-  color: #ffffff;
+  color: #FFFFFF;
   border-color: #126f13;
-  background-color: #37ac3a;
+  background-color: #212328;
 }
 .smoke-base .dialog-buttons button.cancel {
   margin-right: .5em;
-  color: #ffffff;
+  color: #FFFFFF;
   border-color: #e62321;
-  background-color: #f25f5c;
+  background-color: #F25F5C;
 }
 .smoke-base .dialog-buttons button.cancel:hover,
 .smoke-base .dialog-buttons button.cancel:active,
 .smoke-base .dialog-buttons button.cancel.active {
-  color: #ffffff;
+  color: #FFFFFF;
   border-color: #be1816;
-  background-color: #ee312d;
+  background-color: #212328;
+}
+.tab_nav {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto Condensed', "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+.tab_nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #212328;
+}
+.tab_nav li {
+  cursor: pointer;
+  position: relative;
+  padding: 2em;
+  text-transform: uppercase;
+  margin: 0 1px 0 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+.tab_nav li.active {
+  background-color: #ef4135;
 }
 .tooltip {
   cursor: help;
@@ -257,7 +289,7 @@ a.tooltip {
 }
 .dataTables_paginate .paginate_button.current {
   font-weight: bold;
-  background: #a0aae3;
+  background: #fda29c;
   color: #fff;
 }
 .dataTables_paginate .paginate_button.first::before,
@@ -299,6 +331,73 @@ a.tooltip {
 .dataTables_paginate .paginate_button.last::after,
 .dataTables_paginate .paginate_button.next::after {
   content: "\e0af";
+}
+.parallax {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+  height: 200px;
+}
+.parallax.take-from-widget,
+.parallax .take-from-widget {
+  position: relative;
+}
+.parallax.take-from-widget > img,
+.parallax .take-from-widget > img,
+.parallax.take-from-widget > ._lbox,
+.parallax .take-from-widget > ._lbox {
+  display: none;
+}
+.parallax.take-from-widget [data-url*="imageonly"],
+.parallax .take-from-widget [data-url*="imageonly"] {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  z-index: 999;
+}
+.parallax.height-auto {
+  height: auto;
+}
+.parallax-block {
+  margin-bottom: 2.94rem;
+  padding-top: 11em;
+  padding-bottom: 12em;
+  position: relative;
+}
+.parallax-block .container {
+  width: 1700px;
+}
+.parallax-block::before {
+  content: '';
+  background: rgba(33, 35, 40, 0.8);
+  position: absolute;
+  left: -50%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: skew(-25deg, 0deg);
+  -ms-transform: skew(-25deg, 0deg);
+  transform: skew(-25deg, 0deg);
+}
+.parallax-block h4 {
+  position: relative;
+  font-size: 4.17em;
+  line-height: 1;
+  color: #FFFFFF;
+  font-weight: 700;
+  margin-bottom: 0.05em;
+  text-transform: uppercase;
+}
+.parallax-block p {
+  position: relative;
+  padding-right: 2em;
+  color: #FFFFFF;
+  font-size: 2.41em;
+  font-weight: 300;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 .responsive-ratio {
   position: relative;

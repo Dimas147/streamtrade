@@ -1,37 +1,31 @@
-<footer class="grid_12 mt30px" itemscope itemtype="http://schema.org/LocalBusiness" role="contentinfo">
+<footer class="container spacer hide" itemscope itemtype="http://schema.org/LocalBusiness" role="contentinfo">
     <div class="footer-box grid_3 t-grid_3">
-        <h3>{$header:footer1:static}</h3>
-        {$header:footer11:static}<span itemprop="name">{$plugin:widcard:BizOrgName:notag}</span>
+        <h3 class="h2">{$header:footer1:static}</h3>
+        {$menu:main:_main menu footer}
     </div>
     <div class="footer-box grid_3 t-grid_3">
-        <h3>{$header:footer2:static}</h3>
+        <h3 class="h2">{$header:footer2:static}</h3>
+        {$featuredonly:services-sourcing:static}
+    </div>
+    <div class="footer-box grid_3 t-grid_3">
+        <h3 class="h2">{$header:footer3:static}</h3>
+        {$featuredonly:services-transport:static}
+    </div>
+    <div class="footer-box grid_3 t-grid_3 contact-box">
+        <h3 class="h2">{$header:footer4:static}</h3>
         <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
             <span itemprop="streetAddress">{$plugin:widcard:BizAddress1:notag}</span>
             <span itemprop="addressLocality">{$plugin:widcard:BizCity:notag}</span>,
             <span itemprop="postalCode">{$plugin:widcard:BizZip:notag}</span>
             <span itemprop="addressRegion">{$plugin:widcard:BizState:notag}</span>
-            <meta itemprop="addressCountry" content="EN"/>
         </address>
+        Mobile:<br/>
+        <a href="tel:{$plugin:widcard:BizTelephone:href}" itemprop="telephone" class="mb15px"> {$plugin:widcard:BizTelephone:notag}</a><br/>
+        Office:<br/>
+        <a href="tel:{$header:tel1:static:readonly}" class="mb15px">{$header:tel2:static:readonly} - Ext. 1513</a>
+        <p>{$header:footer41:static}</p>
+        <p>{$header:footer42:static}</p>
+        <!--<a href="mailto:{$ plugin:widcard:BizEmail:notag}" itemprop="email">{$ plugin:widcard:BizEmail:notag}</a>
+        <a href="{$website:url}" itemprop="url">{$w ebsite:url}</a>-->
     </div>
-    <div class="footer-box grid_3 t-grid_3">
-        <h3>{$header:footer3:static}</h3>
-        <!-- Include Social links template -->
-        {$template:_social links}
-    </div>
-    <div class="footer-box grid_3 t-grid_3">
-        <h3>{$header:footer4:static}</h3>
-        <p itemprop="telephone">{$plugin:widcard:BizTelephone:notag}</p>
-        <a href="mailto:{$plugin:widcard:BizEmail:notag}" itemprop="email">{$plugin:widcard:BizEmail:notag}</a>.
-        <a href="{$website:url}" itemprop="url">{$website:url}</a>
-    </div>
-
-    <hr class="grid_12">
-
-    <!-- Footer info -->
-    <div class="grid_4 text-left">{$content:footer-info:static}</div>
-
-    <!-- Flat Menu -->
-    <nav id="flat-menu" class="grid_8 text-right">
-        {$menu:flat}
-    </nav>
 </footer>
