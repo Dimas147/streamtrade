@@ -1,11 +1,55 @@
 .img_gallery when (@image-gallery) {
     .inline-block-wrap();
+    background: #25282d;
 
     li {
         position: relative;
         margin-bottom: 0;
         .grid-elements(5; 0; true; 3; 1);
         background: @brand-dark;
+        overflow: hidden;
+        &::before, &::after {
+            pointer-events: none;
+            display: block;
+            .transition();
+        }
+
+        &::before {
+            content: '';
+            .rgba(@brand-dark; 80%);
+            position: absolute;
+            left: -125%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            .skew(-30deg, 0deg);
+        }
+
+        &::after {
+            content: '';
+            .rgba(@brand-primary; 80%);
+            position: absolute;
+            right: -125%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            .skew(-30deg, 0deg);
+        }
+        &:hover {
+            &::before {
+                left: -50%;
+            }
+            &::after {
+                right: -50%;
+            }
+            .gall {
+                &::before {
+                    .opacity(1);
+                }
+            }
+        }
     }
 
     a {
@@ -15,18 +59,35 @@
         }
     }
 
+    .gall {
+        position: relative;
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: @primary-color;
+            .translate(-50%; -50%);
+            font-family: @font-family-icons;
+            font-size: 3em;
+            content: "\e069";
+            z-index: 4;
+            .transition(opacity; 0.3s; ease-in-out);
+            .opacity(0);
+        }
+    }
+
     .image_caption {
-        position    : absolute;
-        bottom      : 0;
-        left        : 0;
-        right       : 0;
-        z-index     : 10;
-        margin      : 0;
-        line-height : @line-height;
-        padding     : @padding-small-vertical;
-        color       : @thumbnail-caption-color;
-        text-align  : center;
-        font-size   : @font-size-small;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        margin: 0;
+        line-height: @line-height;
+        padding: @padding-small-vertical;
+        color: @thumbnail-caption-color;
+        text-align: center;
+        font-size: @font-size-small;
         .text-overflow;
         .rgba(@thumbnail-caption-bg; @thumbnail-caption-opacity);
     }

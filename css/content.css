@@ -2385,6 +2385,17 @@ a:hover.facebook {
   border-color: #2d4373;
   background-color: #212328;
 }
+.social-links {
+  list-style-type: none;
+  padding: 0;
+}
+.social-links li {
+  display: block;
+  margin-bottom: 0.3em;
+}
+.social-links li a.btn:hover {
+  background: #ef4135;
+}
 a {
   color: #ef4135;
   text-decoration: none;
@@ -2496,7 +2507,15 @@ h3,
 }
 h4,
 .h4 {
-  font-size: 1em;
+  margin: 0 0 1.1em;
+  font-size: 1.17em;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+footer h4,
+footer .h4 {
+  color: #FFFFFF;
 }
 h5,
 .h5 {

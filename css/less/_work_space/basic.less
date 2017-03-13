@@ -99,6 +99,7 @@ aside {
 footer {
     color: @footer-color;
     background: @footer-bg;
+    padding: 65px 0 65px;
     &::before {
         content: '';
         position: absolute;
@@ -117,6 +118,27 @@ footer {
             .inline-block();
             text-decoration: none;
             color: #FFFFFF;
+        }
+    }
+    .featureditem, .main_menu{
+        margin-bottom: 1em;
+        span{
+            display: none;
+        }
+        li{
+            .grid-elements(1; 0; true; 1; 1);
+            a{
+                .inline-block();
+                font-weight: 400;
+                font-size: 0.76em;
+                &, &.page-title{
+                    color: #a6a9b1;
+                    &:hover, &.current{
+                        color: @brand-primary;
+                    }
+                }
+            }
+            margin-bottom: 0.7em;
         }
     }
 }
